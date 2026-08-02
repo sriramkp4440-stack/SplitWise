@@ -7,8 +7,10 @@ public class SplitwiseApp {
         String payerName = "Riya";
         double totalAmount = 500;
         int numFriends = 3;
+        double perPersonShare = totalAmount / numFriends;
+        System.out.println(payerName);
         System.out.println(totalAmount);
         System.out.println(numFriends);
-        System.out.println(payerName);
+        System.out.println(perPersonShare);
     }
 }
