@@ -7,7 +7,7 @@ public class SplitwiseApp {
         System.out.println("Track shared expenses with friends");
         System.out.println();
         Scanner input = new Scanner(System.in);
-        ArrayList<String> friends = new ArrayList<>();
+        ArrayList<Friend> friends = new ArrayList<>();
         boolean running = true;
         while (running) {
             System.out.println("===Menu===");
@@ -41,8 +41,8 @@ public class SplitwiseApp {
                     if (friends.isEmpty())
                         System.out.println("No frtends yet");
                     else {
-                        for (String name : friends) {
-                            System.out.println("- " + name);
+                        for ( Friend friend : friends) {
+                            System.out.println("- " + friend.getName());
                         }
                     }
                 }
@@ -54,10 +54,10 @@ public class SplitwiseApp {
             }
         }
     }
-    public static void addFriend(Scanner input, ArrayList<String> friends) {
+    public static void addFriend(Scanner input, ArrayList<Friend> friends) {
         System.out.print("Friend name: ");
         String friendName = input.nextLine();
-        friends.add(friendName);
+        friends.add(new Friend(friendName));
         System.out.println("Added " + friendName + ".");
     }
 }
