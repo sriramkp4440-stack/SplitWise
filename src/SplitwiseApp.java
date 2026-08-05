@@ -37,13 +37,16 @@ public class SplitwiseApp {
                     System.out.println(expenseLine);
                     System.out.println(shareLine);
                 }
-                case 2 -> addFriend(input,friends);
+                case 2 -> {
+                    addFriend(input,friends);
+                }
                 case 3 -> {
-                    if (friends.isEmpty())
-                        System.out.println("No frtends yet");
-                    else {
-                        for ( Friend friend : friends) {
-                            System.out.println("- " + friend.getName());
+                    if (friends.isEmpty()) {
+                        System.out.println("No friends yet.");
+                    } else {
+                        System.out.println("Friends:");
+                        for (Friend friend : friends) {
+                            System.out.println("- %d: %s".formatted(friend.getId(), friend.getName()));
                         }
                     }
                 }
@@ -58,7 +61,8 @@ public class SplitwiseApp {
     public static void addFriend(Scanner input, ArrayList<Friend> friends) {
         System.out.print("Friend name: ");
         String friendName = input.nextLine();
-        friends.add(new Friend(friendName));
-        System.out.println("Added " + friendName + ".");
+        Friend friend = new Friend(friendName);
+        friends.add(friend);
+        System.out.println("Added %s (id %d).".formatted(friend.getName(), friend.getId()));
     }
 }
